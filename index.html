@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Park Plaza London Westminster Bridge | Official Site</title>
+    <style>
+        * { margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+        color: #333; 
+        line-height: 1.6; 
+        background-color: #f9f9f9; 
+    }
+
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #c5a059; 
+            --light: #f4f4f4;
+            --dark: #111;
+        }
+
+        header { 
+            background-color: var(--primary); 
+            color: white; 
+            position: fixed; 
+            width: 100%; top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+        }
+        .nav-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 80px; 
+        }
+        .logo { 
+            font-size: 20px; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+        .logo span { 
+            color: var(--secondary); }
+        nav ul { display: flex; 
+            list-style: none; 
+        }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { 
+            font-size: 14px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: color 0.3s; 
+        }
+        nav ul li a:hover { color: var(--secondary); }
+        .cta-btn { 
+            background-color: var(--secondary); 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            transition: background 0.3s; 
+        }
+        .cta-btn:hover { 
+            background-color: #b08b45; 
+            color: white;}
+
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; 
+            height: 90vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            margin-top: 80px;
+        }
+        .hero-content h1 { 
+            font-size: 48px; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+        .hero-content p { 
+            font-size: 20px; 
+            margin-bottom: 30px; 
+            font-weight: 300; 
+        }
+        .hero-rating { 
+            color: var(--secondary); 
+            font-size: 18px; margin-bottom: 15px; 
+        }
+
+        .section { padding: 80px 0; }
+        .text-center { text-align: center; }
+        .section-title { font-size: 32px; margin-bottom: 15px; position: relative; display: inline-block; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 2px; background: var(--secondary); margin: 10px auto 0; }
+        .overview-p { max-width: 800px; margin: 0 auto 40px; font-size: 18px; color: #666; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-img { height: 220px; background-size: cover; background-position: center; }
+        .card-content { padding: 25px; }
+        .card-content h3 { margin-bottom: 10px; font-size: 20px; }
+        .card-content p { color: #666; font-size: 14px; }
+
+        .amenities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 40px auto; text-align: center; }
+        @media (max-width: 768px) { .amenities-grid { grid-template-columns: repeat(2, 1fr); } }
+        .amenity-item { padding: 20px; background: white; border-radius: 8px; border: 1px solid #eee; }
+        .amenity-item h4 { color: var(--secondary); margin-bottom: 5px; }
+
+        .bg-light { background-color: var(--light); }
+        .review-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .review-text { font-style: italic; color: #555; margin-bottom: 15px; }
+        .review-author { font-weight: bold; font-size: 14px; }
+        .review-stars { color: var(--secondary); margin-bottom: 5px; }
+
+        footer { background-color: var(--dark); color: #aaa; padding: 60px 0 30px; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-logo { color: white; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .footer-title { color: white; font-size: 16px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer a:hover { color: white; }
+        .footer-bottom { text-align: center; border-top: 1px solid #333; padding-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Park Plaza<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#dining">Dining</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#" class="cta-btn">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-rating">★ ★ ★ ★ ½ (4.5/5 Over 13,000 Reviews)</div>
+            <h1>Park Plaza London Westminster Bridge</h1>
+            <p>Unrivalled views of Big Ben and the London Eye in the heart of Waterloo</p>
+            <a href="#" class="cta-btn">Check Availability</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container text-center">
+            <h2 class="section-title">An Iconic London Experience</h2>
+            <p class="overview-p">Located just a 5-minute walk from the London Eye and a 6-minute walk from Waterloo station, our sleek, 4-star hotel places you in the vibrant cultural heart of London. Whether for business or a family getaway, discover unparalleled service and breathtaking views.</p>
+            
+            <div class="amenities-grid">
+                <div class="amenity-item"><h4>✔ Free Wi-Fi</h4><p>High-speed internet throughout</p></div>
+                <div class="amenity-item"><h4>✔ Indoor Pool</h4><p>Stunning relaxation pool & spa</p></div>
+                <div class="amenity-item"><h4>✔ Fitness Center</h4><p>Fully equipped gym</p></div>
+                <div class="amenity-item"><h4>✔ Air Conditioned</h4><p>Ultimate comfort in all rooms</p></div>
+                <div class="amenity-item"><h4>✔ Room Service</h4><p>Available for your convenience</p></div>
+                <div class="amenity-item"><h4>✔ Kid Friendly</h4><p>Kids 11 & under stay free</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">Our Accommodations</h2>
+            <p style="color: #666;">Spacious, modern rooms designed for the ultimate urban retreat.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Superior Rooms</h3>
+                        <p>Modern rooms featuring flat-screen TVs, minibars, and tea/coffee making facilities. Perfect for urban explorers.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Studio Rooms</h3>
+                        <p>Slightly larger rooms featuring pull-out sofa beds, ideal for families traveling on a schedule.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Executive Suites</h3>
+                        <p>1 and 2-bedroom luxury suites adding living areas, kitchenettes, and iconic direct views of Big Ben or the London Eye.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dining" class="section">
+        <div class="container text-center">
+            <h2 class="section-title">World-Class Dining</h2>
+            <p style="color: #666; margin-bottom: 40px;">From fine dining to casual coffee, explore our in-house culinary destinations.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Brasserie Joël</h3>
+                        <p>A warm, award-winning French restaurant offering classical dishes curated with contemporary flair.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>ICHI Sushi</h3>
+                        <p>A chic sushi and sashimi eatery delivering an elegant Japanese dining experience.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Illy Caffè</h3>
+                        <p>Perfect for grabbing expert Italian coffee, breakfast pastries, and quick bites before exploring London.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">What Our Guests Say</h2>
+            
+            <div class="grid">
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"I had a wonderful experience. The customer service was exceptional. Cinzia at the front desk made us feel truly welcome."</p>
+                    <div class="review-author">- Henry John (Google Review)</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"The view from the lounge is exceptional. The lounge gets one of the best views of the bridge and Big Ben. Fancy afternoon teas!"</p>
+                    <div class="review-author">- Greg Davis (Local Guide)</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"Clean, modern, and large rooms with great views. Good location for business and leisure travel alike. Exceptional check-in from Caitlin."</p>
+                    <div class="review-author">- Laura K. (Google Review)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Park Plaza.</div>
+                    <p>4-Star Luxury in Central London.</p>
+                </div>
+                <div>
+                    <div class="footer-title">Contact Us</div>
+                    <ul>
+                        <li>📍 200 Westminster Bridge Rd, London</li>
+                        <li>📞 +44 333 400 6112</li>
+                        <li>Check-in: 15:00 | Check-out: 12:00</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Location & Directions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Park Plaza London Westminster Bridge. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
